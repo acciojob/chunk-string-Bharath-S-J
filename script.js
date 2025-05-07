@@ -1,4 +1,5 @@
 function stringChop(str, size) {
+	size = parseInt(size); 
 	let res=[]
 	let i=0,n=str.length
 	let temp=""
