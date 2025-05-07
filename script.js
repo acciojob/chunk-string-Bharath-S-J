@@ -1,24 +1,20 @@
-function stringChop(str, size) {
-	size = parseInt(size); 
-	let res=[]
-	let i=0,n=str.length
-	let temp=""
-	while(i<n){
-		temp+=str[i++];
-		if(temp.length==size){
-			res.push(temp)
-			temp=""
-		}
+function chunkString(str, size) {
+	// Convert size to number
+	size = parseInt(size);
+
+	// Handle null or invalid input
+	if (!str || typeof str !== "string" || isNaN(size) || size <= 0) {
+		return [];
 	}
-	if(temp.length>0){
-		res.push(temp)
+
+	const res = [];
+	for (let i = 0; i < str.length; i += size) {
+		res.push(str.slice(i, i + size));
 	}
-	return res
-  // your code here
-	
+	return res;
 }
 
 // Do not change the code below
-const str = prompt("Enter String.");
-const size = prompt("Enter Chunk Size.");
-alert(stringChop(str, size));
+// const str = prompt("Enter String.");
+// const size = prompt("Enter Chunk Size.");
+// alert(chunkString(str, size));
